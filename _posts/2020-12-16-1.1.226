@@ -1,0 +1,28 @@
+﻿---
+categories: [fenix]
+layout: fenix
+---
+## Hlavičky sloupců - kopírování
+Do nastavení Fenix přibyla nová sada checkboxů pro vypnutí/zapnutí kopírování hlaviček (ukazatelů) slouců do schránky. 
+Toto umožňuje vypnout/zapnout kopírování hlaviček (ukazatelů) sloupců z výstupů při použití klávesové zkratky CTRL + C a kopírování obsahu.
+Po rozkliknutí znaménka + se objeví checkboxy, které umožňují totožné nastavení, ale zvlášť pro jednotlivé fáze.
+<video src="{{site.url}}/data/hlavicky_vystup.mp4" type="video/mp4" controls></video>
+
+## DP, SP, PA - filtrace sloupců, ukazatele pro všechny CS a podmíněné formátování
+Ve výstupech strategického plánu, detailního plánu a postanalýzy  je možné vyjmout libovolné ukazatele z kopírování pomocí klávesové zkratky CTRL+C. 
+Tato funkce se zapíná pravým tlačítkem myši na hlavičce sloupce, kde nám kontextové menu umožní vypnout/zapnout kopírování ukazatele do schránky. 
+Takto označené ukazatele dostanou nový příznak v okně ukazatelů. 
+Tyto ukazatele budou tedy přeskočeny při kopírování z výstupu dané fáze.
+Dále se do menu, které se zobrazí při pravém kliknutí myší na hlavičce sloupce přidaly již existující funkce: zobrazení ukazatele pro všechny cílové skupiny a podmíněné formátování.
+<video src="{{site.url}}/data/vyp_ukazatele.mp4" type="video/mp4" controls></video>
+
+## <abbr title="Reachové křivky">RK</abbr> - videokoeficient 
+V reachových křivkách je nově brán v potaz nastavený videokoeficient, který přímo ovlivňuje imprese a hladinu impresí.
+<video src="{{site.url}}/data/videoK_imprese.mp4" type="video/mp4" controls></video>
+
+## Ostatní
+<ul><li><abbr title="Reachové křivky">RK</abbr> - pro sloupce/ukazatele TRP, Hladina TRP, Imprese [tis.], Hladina Imprese [tis.] byla přidána do závorky CS</li>
+<li><abbr title="Reachové křivky">RK</abbr> - oprava přejmenování názvu v zadání období</li>
+<li><abbr title="Reachové křivky">RK</abbr> - V reachových křivkách se nebral v potaz nastavený videokoeficient. Nyní přímo ovlivňuje imprese a hladinu impresí</li>
+<li><abbr title="Nákupní podmínky">NP</abbr> - opravena chyba v kopírovaní nákupních podmínek</li>
+<li><abbr title="Strategický plán">SP</abbr> - nově se počítá pouze s reklamními bloky a ne se sponzoringovými bloky</li></ul>
