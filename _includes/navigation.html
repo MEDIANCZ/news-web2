@@ -31,7 +31,7 @@
                             src="{{site.url}}/img/kiwi.png" alt=""></a></td>
             </tr>
             <tr>
-                <td colspan="2"><div class="gcse-search"></div></td>
+                <td colspan="2"><div class="gcse-search search-box" style="visibility: collapse;"></div></td>
             </tr>
         </table>
         {% endif %}
@@ -45,7 +45,7 @@
                             src="{{site.url}}/img/kiwi.png" alt=""></a></td>
             </tr>
             <tr>
-                <td colspan="2"><div class="gcse-search"></div></td>
+                <td colspan="2"><div class="gcse-search search-box" style="visibility: collapse;"></div></td>
             </tr>
         </table>
         {% endif %}
@@ -78,5 +78,19 @@
     </div>
 </nav>
 <div style="padding: 4em 0 0 1em !important;" class="d-block d-lg-none container-fluid">
-    <div class="gcse-search"></div>
+    <div class="gcse-search search-box" style="visibility: collapse;"></div>    
 </div>
+<script>
+    const searchBox = document.querySelector('#searchBox-message');
+    
+             document.onkeyup = function(e) {
+      if (e.ctrlKey && e.shiftKey && e.which == 70) {
+          if(searchBox.style.visibility == 'collapse') {
+            searchBox.style.visibility = 'visible';
+          }
+          else {
+               searchBox.style.visibility = 'collapse';     
+          }
+      }
+    };
+          </script>
