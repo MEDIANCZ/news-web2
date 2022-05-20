@@ -78,27 +78,19 @@
     </div>
 </nav>
 <div style="padding: 4em 0 0 1em !important;" class="d-block d-lg-none container-fluid">
-    <div class="gcse-search search-box2" style="visibility: collapse;"></div>    
+    <div class="gcse-search search-box" style="visibility: collapse;"></div>    
 </div>
 <script>
-    const searchBoxes = document.querySelectorAll('.search-box');
+    const searchBox = document.querySelector('.search-box');
     
-    document.onkeyup = function(e) 
-    {
-        if (e.ctrlKey && e.shiftKey && e.which == 70) // Ctrl+Shift+F
-        {
-            for (let i = 0; i < searchBoxes.length; i++) 
-            {
-                var searchBox = searchBoxes[i];
-                if(searchBox.style.visibility == 'collapse') 
-                {
-                    searchBox.style.visibility = 'visible';
-                }
-                else 
-                {
-                    searchBox.style.visibility = 'collapse';     
-                }
-            }
-        }
+             document.onkeyup = function(e) {
+      if (e.ctrlKey && e.shiftKey && e.which == 70) {
+          if(searchBox.style.visibility == 'collapse') {
+            searchBox.style.visibility = 'visible';
+          }
+          else {
+               searchBox.style.visibility = 'collapse';     
+          }
+      }
     };
-</script>
+          </script>
