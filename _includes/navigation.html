@@ -61,7 +61,7 @@
                 {% for post in site.posts %}
                 {% if post.categories contains "fenix" and display_version == "fenix" %}
                 <li class="navbar-item">
-                    <a href="{{site.url}}/{{ post.url }}" class="nav-link js-scroll-trigger">VERZE {{ post.title }} -
+                    <a href="{{site.url}}/{{ post.url }}" class="nav-link js-scroll-trigger">{% if {{post.title | slice:0 }} == "2" %}CLOUD {% else %}VERZE{% endif %} {{ post.title }} -
                         {{ post.date | date: "%d.%m.%Y" }}</a>
                 </li>
                 {% endif %}
