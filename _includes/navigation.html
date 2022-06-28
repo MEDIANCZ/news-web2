@@ -1,3 +1,4 @@
+<script async src="https://cse.google.com/cse.js?cx=012290468451254825598:ggouecm5yzo"></script>
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
     <a class="navbar-brand js-scroll-trigger" href="#page-top"></a>
     <span class="d-block d-lg-none">
@@ -30,7 +31,7 @@
                             src="{{site.url}}/img/kiwi.png" alt=""></a></td>
             </tr>
             <tr>
-                <td colspan="2"><iframe src="https://duckduckgo.com/search.html?width=200&site=kiwifenix.lerach.cz" style="overflow:hidden;margin:0;padding:0;width:268px;height:40px;padding-left: 5px;" frameborder="0"></iframe></td>
+                <td colspan="2"><div class="gcse-search"></div></td>
             </tr>
         </table>
         {% endif %}
@@ -44,7 +45,7 @@
                             src="{{site.url}}/img/kiwi.png" alt=""></a></td>
             </tr>
             <tr>
-                <td colspan="2"><iframe src="https://duckduckgo.com/search.html?width=200&site=kiwifenix.lerach.cz" style="overflow:hidden;margin:0;padding:0;width:268px;height:40px;padding-left: 5px;" frameborder="0"></iframe></td>
+                <td colspan="2"><div class="gcse-search"></div></td>
             </tr>
         </table>
         {% endif %}
@@ -58,9 +59,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav content">
                 {% for post in site.posts %}
-                {% if post.categories contains "fenix" and display_version == "fenix" %}
+                {% if post.categories contains "fenix" and display_version == "fenix" %}                
                 <li class="navbar-item">
-                    <a href="{{site.url}}/{{ post.url }}" class="nav-link js-scroll-trigger">VERZE {{ post.title }} -
+                    {% assign majorVersion = post.title | slice:0 %}                    
+                    <a href="{{site.url}}/{{ post.url }}" class="nav-link js-scroll-trigger">{% if majorVersion  == "2" %}CLOUD{% else %}VERZE{% endif %} {{ post.title }} -
                         {{ post.date | date: "%d.%m.%Y" }}</a>
                 </li>
                 {% endif %}
@@ -77,5 +79,5 @@
     </div>
 </nav>
 <div style="padding: 4em 0 0 1em !important;" class="d-block d-lg-none container-fluid">
-    <iframe src="https://duckduckgo.com/search.html?site=kiwifenix.lerach.cz" style="overflow:hidden;margin:0;padding:0;width:95%;height:40px;" frameborder="0"></iframe>
+    <div class="gcse-search"></div>
 </div>
