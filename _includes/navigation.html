@@ -54,28 +54,6 @@
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="scrollbar-inner scrollbar-dynamic">
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav content">
-                {% for post in site.posts %}
-                {% if post.categories contains "fenix" and display_version == "fenix" %}                
-                <li class="navbar-item">
-                    {% assign majorVersion = post.title | slice:0 %}                    
-                    <a href="{{site.url}}/{{ post.url }}" class="nav-link js-scroll-trigger">{% if majorVersion  == "2" %}CLOUD{% else %}VERZE{% endif %} {{ post.title }} -
-                        {{ post.date | date: "%d.%m.%Y" }}</a>
-                </li>
-                {% endif %}
-
-                {% if post.categories contains "kiwi" and display_version == "kiwi" %}
-                <li class="navbar-item">
-                    <a href="{{site.url}}/{{ post.url }}" class="nav-link js-scroll-trigger">VERZE {{ post.title | replace: "k" : "" }} -
-                        {{ post.date | date: "%d.%m.%Y" }}</a>
-                </li>
-                {% endif %}
-                {% endfor %}
-            </ul>
-        </div>
-    </div>
 	<div style="padding: 4em 0 0 1em !important;" class="d-block d-lg-none container-fluid">
 		<script src="//inc.freefind.com/inc/ffse-overlay.min.js" async></script>
 		<!-- start of freefind search box html -->
@@ -105,6 +83,27 @@
 		</tr>
 		</table>
 		<!-- end of freefind search box html -->
-	</div>
-</div>
-</nav>
+	</div>	
+    <div class="scrollbar-inner scrollbar-dynamic">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav content">
+                {% for post in site.posts %}
+                {% if post.categories contains "fenix" and display_version == "fenix" %}                
+                <li class="navbar-item">
+                    {% assign majorVersion = post.title | slice:0 %}                    
+                    <a href="{{site.url}}/{{ post.url }}" class="nav-link js-scroll-trigger">{% if majorVersion  == "2" %}CLOUD{% else %}VERZE{% endif %} {{ post.title }} -
+                        {{ post.date | date: "%d.%m.%Y" }}</a>
+                </li>
+                {% endif %}
+
+                {% if post.categories contains "kiwi" and display_version == "kiwi" %}
+                <li class="navbar-item">
+                    <a href="{{site.url}}/{{ post.url }}" class="nav-link js-scroll-trigger">VERZE {{ post.title | replace: "k" : "" }} -
+                        {{ post.date | date: "%d.%m.%Y" }}</a>
+                </li>
+                {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</	nav>
