@@ -331,7 +331,7 @@
     ul {
       padding-left: 1rem;
     }
-	.navbar {
+	#sideNav {
 		align-items: flex-start;
 		max-height: 200px;
 	}
