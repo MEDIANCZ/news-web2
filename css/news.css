@@ -331,6 +331,10 @@
     ul {
       padding-left: 1rem;
     }
+	.navbar {
+		align-items: flex-start;
+		max-height: 200px;
+	}
   }
 
   a.nav-link {
