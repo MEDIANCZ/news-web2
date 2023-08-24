@@ -331,10 +331,8 @@
     ul {
       padding-left: 1rem;
     }
-	#sideNav {
-		align-items: flex-start;
-		max-height: 200px;
-	}
+	.scroll-wrapper {
+		max-height: 75vh;
   }
 
   a.nav-link {
