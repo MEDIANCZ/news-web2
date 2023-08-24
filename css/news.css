@@ -333,6 +333,10 @@
     }
 	.scroll-wrapper {
 		max-height: 75vh;
+	}
+	#sideNav {
+		flex-direction: column;
+	}
   }
 
   a.nav-link {
