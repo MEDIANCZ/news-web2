@@ -89,6 +89,7 @@
             <div class="w-100">
                 <h1 class="mb-0">Verze {{ post.title | replace: "k" : "" }}</h1>
                 <h3><span class="text-primary">{{ post.date | date: "%d.%m.%Y" }}</span></h3>
+                <a href="{{page.next.url}}">Novější</a> | <a href="{{page.previous.url}}">Starší</a>
                 <div class="subheading">Seznam změn:</a>
                     <ul id="features-list">
 
@@ -111,6 +112,7 @@
             <div class="w-100">
                 <h1 class="mb-0">Verze {{ post.title }}</h1>
                 <h3><span class="text-primary">{{ post.date | date: "%d.%m.%Y" }}</span></h3>
+                <a href="{{page.next.url}}">Novější</a> | <a href="{{page.previous.url}}">Starší</a>
                 <div class="subheading">Seznam změn:</a>
                     <ul id="features-list">
 
