@@ -82,64 +82,27 @@
           <h1 class="mb-0">{% if majorVersion  == "2" %}Cloud {% endif %} Verze {{ page.title | replace: "k" : "" }}</h1>
           <h3><span class="text-primary">{{ page.date | date: "%d.%m.%Y" }}</span></h3>                    
           
-          
-{% assign articles = site.posts %}
-{% for article in articles %}
-  {% if article.title == page_title %}
-    {% assign currIndex = forloop.index0 %}
-    {% assign prevIndex = currIndex | minus: 1 %}
-    {% assign nextIndex = currIndex | plus: 1 %}
-    {% assign articleIndexLength = forloop.length | minus: 1 %}
-    <div class="page-navigation">
-      {% if currIndex == 0 %}
-        <a class="next0" href="{{ site.url }}{{ site.baseurl }}{{ articles[nextIndex].url }}">{{ articles[nextIndex].title }} &raquo;</a>
-      {% elsif currIndex < articleIndexLength and currIndex != 0 %}
-        <a class="prev" href="{{ site.url }}{{ site.baseurl }}{{ articles[prevIndex].url }}">&laquo; {{ articles[prevIndex].title }}</a>
-        <a class="next" href="{{ site.url }}{{ site.baseurl }}{{ articles[nextIndex].url }}">{{ articles[nextIndex].title }} &raquo;</a>
-      {% elsif currIndex == articleIndexLength %}
-        <a class="prev" href="{{ site.url }}{{ site.baseurl }}{{ articles[prevIndex].url }}">&laquo; {{ articles[prevIndex].title }}</a>
-      {% endif %}
-    </div>
-  {% endif %}
-{% endfor %}
+          {% if display_version == "fenix" %}
+            {% for post in site.categories.fenix %}
 
+              {% if page.previous.url == post.url %}
+                {% assign next_i = forloop.index | plus: 1 %}
+                {% assign prev_i = forloop.index | minus: 1 %}
+                {% assign nextPost = site.categories.fenix[prev_i] %}
+                {% assign prevPost = site.categories.fenix[next_i] %}
+              {% endif %}
 
-<!--
-Using the above page.next and page.previous code, it can be written
-to customize the previous and next articles within a given category.
--->
+            {% endfor %}
 
-{% assign weighted_categories = site.category_weights %}
-{% assign categories = site.categories %}
-{% assign page_category = page.category %}
-{% assign page_title = page.title %}
-
-{% for category in categories %}
-  <div class="category-group">
-    {% assign sorted_articles = category[1] | sort: 'weight' %}
-    {% capture category_name %}{{ category | first }}{% endcapture %}
-    {% if category_name == page_category %}
-      {% for article in sorted_articles %}
-        {% if article.title == page_title %}
-          {% assign currIndex = forloop.index0 %}
-          {% assign prevIndex = currIndex | minus: 1 %}
-          {% assign nextIndex = currIndex | plus: 1 %}
-          {% assign articleIndexLength = forloop.length | minus: 1 %}
-          <div class="page-navigation">
-            {% if currIndex == 0 %}
-              <a class="next0" href="{{ site.url }}{{ site.baseurl }}{{ sorted_articles[nextIndex].url }}">{{ sorted_articles[nextIndex].title }} &raquo;</a>
-            {% elsif currIndex < articleIndexLength and currIndex != 0 %}
-              <a class="prev" href="{{ site.url }}{{ site.baseurl }}{{ sorted_articles[prevIndex].url }}">&laquo; {{ sorted_articles[prevIndex].title }}</a>
-              <a class="next" href="{{ site.url }}{{ site.baseurl }}{{ sorted_articles[nextIndex].url }}">{{ sorted_articles[nextIndex].title }} &raquo;</a>
-            {% elsif currIndex == articleIndexLength %}
-              <a class="prev" href="{{ site.url }}{{ site.baseurl }}{{ sorted_articles[prevIndex].url }}">&laquo; {{ sorted_articles[prevIndex].title }}</a>
+            {% if prevPost.url %}
+              <a class="btn btn-outline-secondary" style="margin-right: 1em;" href="{{prevPost.url}}"><i class="fa-solid fa-arrow-left"></i> Starší</a>
             {% endif %}
-          </div>
-        {% endif %}
-      {% endfor %}
-    {% endif %}
-  </div>
-{% endfor %}
+            
+            {% if nextPost.url %}
+              <a class="btn btn-outline-secondary" href="{{nextPost.url}}"><i class="fa-solid fa-arrow-right"></i> Novější</a>          
+            {% endif %}  
+
+          {% endif %}
     
           <div class="subheading">Seznam změn:</a>
             <ul id="features-list">
