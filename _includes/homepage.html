@@ -111,6 +111,11 @@
             <div class="w-100">
                 <h1 class="mb-0">Verze {{ post.title }}</h1>
                 <h3><span class="text-primary">{{ post.date | date: "%d.%m.%Y" }}</span></h3>                
+                {% for previousPost in site.categories.fenix limit:2 %}
+                    {% if {{forloop.index}} == 1 %}
+                        <a class="btn btn-outline-secondary" style="margin-right: 1em;" href="{{previousPost.url}}"><i class="fa-solid fa-arrow-left"></i> Starší</a>
+                    {% endif %}
+                {% endfor %}
                 <div class="subheading">Seznam změn:</a>
                     <ul id="features-list">
 
