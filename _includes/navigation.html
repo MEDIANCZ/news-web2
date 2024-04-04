@@ -81,17 +81,22 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav content">
                 {% for post in site.posts %}
+                {% if post.url == page.url %}
+                    {% assign isActive = "active-link" %}    
+                {% else %}  
+                    {% assign isActive = "" %}    
+                {% endif %}
                 {% if post.categories contains "fenix" and display_version == "fenix" %}                
                 <li class="navbar-item">
                     {% assign majorVersion = post.title | slice:0 %}                    
-                    <a href="{{site.url}}/{{ post.url }}" class="nav-link js-scroll-trigger">{% if majorVersion  == "2" %}CLOUD{% else %}VERZE{% endif %} {{ post.title }} -
+                    <a href="{{site.url}}/{{ post.url }}" class="nav-link js-scroll-trigger {{isActive}}">{% if majorVersion  == "2" %}CLOUD{% else %}VERZE{% endif %} {{ post.title }} -
                         {{ post.date | date: "%d.%m.%Y" }}</a>
                 </li>
                 {% endif %}
 
                 {% if post.categories contains "kiwi" and display_version == "kiwi" %}
                 <li class="navbar-item">
-                    <a href="{{site.url}}/{{ post.url }}" class="nav-link js-scroll-trigger">VERZE {{ post.title | replace: "k" : "" }} -
+                    <a href="{{site.url}}/{{ post.url }}" class="nav-link js-scroll-trigger {{isActive}}">VERZE {{ post.title | replace: "k" : "" }} -
                         {{ post.date | date: "%d.%m.%Y" }}</a>
                 </li>
                 {% endif %}
