@@ -85,11 +85,19 @@
           {% if display_version == "fenix" %}
             {% for post in site.categories.fenix %}
 
-              {% if page.previous.url == post.url %}
-                {% assign next_i = forloop.index | plus: 1 %}
-                {% assign prev_i = forloop.index | minus: 1 %}
-                {% assign nextPost = site.categories.fenix[prev_i] %}
-                {% assign prevPost = site.categories.fenix[next_i] %}
+              {% if page.url == post.url %}
+                {% assign next_i = forloop.index0 | minus: 1 %}
+                {% assign prev_i = forloop.index0 | plus: 1 %}
+                {% assign nextPost = site.categories.fenix[next_i] %}
+                {% assign prevPost = site.categories.fenix[prev_i] %}
+                <div>
+                  CurrentIndex: {{forloop.index0}}
+                  PrevIndex: {{prev_i}}
+                  NextIndex: {{next_i}}
+                  CurrentPostUrl: {{post.url}}
+                  NextPostUrl: {{nextPost.url}}
+                  PrevPostUrl: {{prevPost.url}}
+                </div>
               {% endif %}
 
             {% endfor %}
