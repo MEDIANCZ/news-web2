@@ -83,21 +83,20 @@
           <h3><span class="text-primary">{{ page.date | date: "%d.%m.%Y" }}</span></h3>                    
           
           {% if display_version == "fenix" %}
-            {% for post in site.categories.fenix %}
+            {% assign categoryPosts = site.categories.fenix %}
+          {% endif %}
+
+          {% if display_version == "kiwi" %}
+            {% assign categoryPosts = site.categories.kiwi %}
+          {% endif %}
+
+            {% for post in categoryPosts %}
 
               {% if page.url == post.url %}
                 {% assign next_i = forloop.index0 | minus: 1 %}
                 {% assign prev_i = forloop.index0 | plus: 1 %}
-                {% assign nextPost = site.categories.fenix[next_i] %}
-                {% assign prevPost = site.categories.fenix[prev_i] %}
-                <div>
-                  CurrentIndex: {{forloop.index0}}
-                  PrevIndex: {{prev_i}}
-                  NextIndex: {{next_i}}
-                  CurrentPostUrl: {{post.url}}
-                  NextPostUrl: {{nextPost.url}}
-                  PrevPostUrl: {{prevPost.url}}
-                </div>
+                {% assign nextPost = categoryPosts[next_i] %}
+                {% assign prevPost = categoryPosts[prev_i] %}              
               {% endif %}
 
             {% endfor %}
@@ -110,7 +109,7 @@
               <a class="btn btn-outline-secondary" href="{{nextPost.url}}"><i class="fa-solid fa-arrow-right"></i> Novější</a>          
             {% endif %}  
 
-          {% endif %}
+         
     
           <div class="subheading">Seznam změn:</a>
             <ul id="features-list">
