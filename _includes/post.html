@@ -82,13 +82,28 @@
           <h1 class="mb-0">{% if majorVersion  == "2" %}Cloud {% endif %} Verze {{ page.title | replace: "k" : "" }}</h1>
           <h3><span class="text-primary">{{ page.date | date: "%d.%m.%Y" }}</span></h3>                    
           
-          {% if page.previous.url %}
-          <a class="btn btn-outline-secondary" style="margin-right: 1em;" href="{{page.previous.url}}"><i class="fa-solid fa-arrow-left"></i> Starší</a>
+          {% if display_version == "fenix" %}
+            {% for post in site.categories.fenix %}
+
+              {% if page.previous.url == post.url %}
+                {% assign next_i = forloop.index0 | plus: 1 %}
+                {% assign prev_i = forloop.index0 | minus: 1 %}
+                {% assign nextPost = site.categories.fenix[next_i] %}
+                {% assign prevPost = site.categories.fenix[prev_i] %}
+              {% endif %}
+
+            {% endfor %}
+
+            {% if prevPost.url %}
+              <a class="btn btn-outline-secondary" style="margin-right: 1em;" href="{{prevPost.url}}"><i class="fa-solid fa-arrow-left"></i> Starší</a>
+            {% endif %}
+            
+            {% if nextPost.url %}
+              <a class="btn btn-outline-secondary" href="{{nextPost.url}}"><i class="fa-solid fa-arrow-right"></i> Novější</a>          
+            {% endif %}  
+
           {% endif %}
-          {% if page.next.url %}
-          <a class="btn btn-outline-secondary" href="{{page.next.url}}"><i class="fa-solid fa-arrow-right"></i> Novější</a>          
-          {% endif %}
-          
+    
           <div class="subheading">Seznam změn:</a>
             <ul id="features-list">
 
