@@ -77,15 +77,18 @@
 
     <div class="container-fluid p-0">
       <section class="resume-section p-3 p-lg-5 d-flex" id="about">
-        <div class="w-100">
-          <a class="btn btn-outline-secondary" style="padding-right: 2em;" href="{{page.previous_in_category.url}}"><i class="fa-solid fa-arrow-left"></i> Starší</a>
-          {% if page.next %}
-          <a class="btn btn-outline-secondary" href="{{page.next.url}}"><i class="fa-solid fa-arrow-right"></i> Novější</a>          
-          {% endif %}
-          
+        <div class="w-100">       
           {% assign majorVersion = page.title | slice:0 %}                    
           <h1 class="mb-0">{% if majorVersion  == "2" %}Cloud {% endif %} Verze {{ page.title | replace: "k" : "" }}</h1>
           <h3><span class="text-primary">{{ page.date | date: "%d.%m.%Y" }}</span></h3>                    
+          
+          {% if page.previous.url %}
+          <a class="btn btn-outline-secondary" style="margin-right: 1em;" href="{{page.previous.url}}"><i class="fa-solid fa-arrow-left"></i> Starší</a>
+          {% endif %}
+          {% if page.next.url %}
+          <a class="btn btn-outline-secondary" href="{{page.next.url}}"><i class="fa-solid fa-arrow-right"></i> Novější</a>          
+          {% endif %}
+          
           <div class="subheading">Seznam změn:</a>
             <ul id="features-list">
 
