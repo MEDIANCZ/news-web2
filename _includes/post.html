@@ -29,22 +29,7 @@
   <meta name="msapplication-TileImage" content="{{site.url}}/img/icons/kiwi/ms-icon-144x144.png">
   <meta name="theme-color" content="#ffffff">
   {% endif %}
-
-  <!-- kvůli IE -->
-  <script>
-    window.globalThis = window;
-  </script>
-
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PBJQND61FT"></script>
-  <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-PBJQND61FT');
-  </script>
-
+ 
   {% if display_version == "fenix" %}
   <title>Fenix - Verze {{ page.title }} - {{ page.date | date: "%d.%m.%Y" }}</title>
   <link rel="apple-touch-icon" sizes="180x180" href="{{site.url}}/img/icons/fenix/apple-touch-icon.png">
