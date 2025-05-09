@@ -61,7 +61,7 @@
   <!-- <script src="https://kiwifenix.lerach.cz/js/news.js"></script> -->
 </head>
 
-<body id="p-0 page-top">
+<body id="p-0 page-top" style="padding-left: 0;">
 
   <div id="main-content" style="display: block;">
 
@@ -71,17 +71,38 @@
 
           <div id="main-content">
             <h2 id="feature-heading-0" style="border-top: 0; padding-top: 0; margin-top: 0;">Timespent</h2>
-            <p>Funkce timespent slouží k definování cílové skupiny na základě konzumace mediálního obsahu.</p>
+            <p>Funkce timespent slouží k definování cílové skupiny na základě konzumace mediálního obsahu. Tuto cílovou skupinu lze pak použít v Kiwi v libovolné analýze (respondentů, časové, pořadové, ...). Její definice se zpřístupní v editoru cílových skupin při kliknutí dole na záložku Timespent.</p>
+            <p> Cílová skupina definovaná pomocí funkce timespent obsahuje respondenty, kteří splnili podmínku minimální doby konzumace vybraných médií <i>v průměrném dni</i> a navíc měřili (byli v datech součástí panelu) alespoň <i>70% dní</i> z vybraného období</span>. Průměrná doba konzumace médií každého respondenta se počítá pouze ze dnů, kdy byl respondent v datech. Podmínka měření 70% dní je zvolená kvůli tomu, abychom zohledňovali pouze respondenty, kteří jsou většinu dnů v období součástí měření.</p>
 
-            <img src="timespent.png" alt="Kiwi - timespent" title="Kiwi - timespent">
+            <img src="timespent.png" alt="Kiwi - timespent" title="Kiwi - timespent" class="rounded mx-auto d-block">
+
+            <p>Timespent se skládá ze 4 základních parametrů (viz obrázek):</p>
+            <ol>
+              <li><b>Média</b> - v levé části lze vybrat média či celé médiatypy, pro které výraz timespent definujeme.</li>
+              <li><b>Časová podmínka</b> - v pravé části nahoře lze definovat časovou podmínku, kterou musí respondenti splnit pro zařazení do cílové skupiny.</li>
+              <li><b>Období</b> - za jaké období timespent definujeme. Lze formulovat také pomocí relativního období, kde si uživatel může vybrat typ, posun a periodicitu období relativně vůči datu výpočtu.</li>
+              <img src="datum-relativni.png" alt="Datum relativní" title="Datum relativní">
+              <li><b>Vybraná část dne</b> - v pravé části dole lze omezit část dne, pro kterou budeme konzumaci daného média počítat. Může sloužit např. k vymezení diváků či posluchačů konkrétního pořadu. Ve&nbsp;výchozím stavu vybraná část dne pokrývá celý programový den.</li>
+            </ol>
 
             <h4>Pokročilé nastavení</h4>
             <ul>
-              <li>Časová hodnota <b>Nezadáno</b> - v tomto případě splní podmínku timespent ti respondenti, kteří neměří 70% času vybraného období.</li>
+              <li>Časová hodnota <b>Nezadáno</b> - v tomto případě splní podmínku timespent respondenti, kteří neměří (nejsou v datech) 70% času vybraného období.</li>
               <li>Volba <b>Média jednotlivě</b> - v případě výběru více médií se při kliknutí na šipku vytvoří více timespent výrazů pro každé vybrané médium.</li>
-              <li>Volba <b>Rozdělit</b> časové úseky - podobně jako u předchozí volby vygeneruje při kliknutí na šipku více timespent výrazů pro rozdělené období podle zvoleného časového intervalu.</li>
+              <li>Volba <b>Rozdělit</b> časové úseky - podobně jako u předchozí volby se při kliknutí na šipku vygeneruje více timespent výrazů pro rozdělené období podle zvoleného intervalu.</li>
+              <li><b>Typ zařízení</b> - pro internetová média lze při definici výrazu timespent vybrat, z jakého zařízení se budou časové úseky počítat. Ve výchozím stavu jsou vybrané všechny typy zařízení.</li>
+              <img src="typ-zarizeni.png" alt="Typ zařízení" title="Typ zařízení">
             </ul>
 
+            <h4>Příklady a poznámky</h4>
+            <ul>
+              <li>Pokud respondent sledoval televizní kanál jeden den 2 hodiny a zbytek měsíce ne (ale byl součástí panelu), tak <b>splní</b> podmínku timespent na 3 minuty, protože průměrný den sledoval: 120&nbsp;minut&nbsp;/&nbsp;30&nbsp;dní&nbsp;=&nbsp;4 minuty.</li>
+              <li>Pokud respondent poslouchal rádiovou stanici každý druhý den 5 minut (a byl součástí dat každý den), tak <b>nesplní</b> podmínku timespent na 3 minuty, protože průměrný den poslouchal pouze 2,5 minuty.</li>
+              <li>Pokud respondent navštěvoval internetovou stránku každý den 10 minut v prvních 15-ti dnech v měsíci, ale v druhých 15-ti dnech v měsíci nebyl součástí dat, tak <b>nesplní</b> podmínku timespent na 3 minuty, protože sice má průměrnou dobu návštěvy internetové stránky 10 minut, ale byl součástí panelu pouze 50% dní.</li>
+            </ul>
+
+            Z důvodu možné obměny panelu nedoporučujeme vytvářet cílové skupiny s timespent výrazem na příliš dlouhém období. Navíc by mělo období v timespent výrazu zhruba odpovídat období v analýze, ve které je cílová skupina s timespent použitá. Timespent vybere konkrétní respondenty z definovaného období a ti by nemuseli odpovídat respondentům načteným v analýze z jiného období. 
+            
           </div>
         </div>
       </section>
